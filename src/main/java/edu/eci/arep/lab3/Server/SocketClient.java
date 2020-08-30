@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 public class SocketClient {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         Socket clientSocket = null;
         PrintWriter out = null;
         BufferedReader in = null;
@@ -28,16 +28,15 @@ public class SocketClient {
                     + "the connection to: localhost.");
             System.exit(1);
         }
-        BufferedReader stdIn = new BufferedReader(
-                new InputStreamReader(System.in));
-        String userInput;
-        while ((userInput = stdIn.readLine()) != null) {
-            out.println(userInput);
+        for (int i = 0; i <=20 ; i++) {
+            out.println(i);
             System.out.println("Server answer: " + in.readLine());
+            Thread.sleep(1000);
         }
+        /*while ((userInput = stdIn.readLine()) != null) {
+            out.println(userInput);*/
         out.close();
         in.close();
-        stdIn.close();
         clientSocket.close();
     }
 }

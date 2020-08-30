@@ -12,7 +12,7 @@ public class SocketServer {
         int port = 1234;
         try {
             serverSocket = new ServerSocket(port);
-            System.out.println("[+] Listen on port " + port);
+            System.out.println("[+] Listening on port " + port);
         } catch (IOException e) {
             System.err.println("Could not listen on port 1234");
             System.exit(1);
