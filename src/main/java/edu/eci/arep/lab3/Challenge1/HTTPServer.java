@@ -17,7 +17,6 @@ import java.util.logging.Logger;
 
 public class HTTPServer {
 
-    private int port = 36000;
     private boolean running = false;
 
     public HTTPServer() {
@@ -29,7 +28,6 @@ public class HTTPServer {
         }
         return 36000; //returns default port if heroku-port isn't set (i.e. on localhost)
     }
-
     public void start() {
         try {
             ServerSocket serverSocket = null;
@@ -50,9 +48,7 @@ public class HTTPServer {
                         System.err.println("Accept failed.");
                         System.exit(1);
                     }
-
                     processRequest(clientSocket);
-
                     clientSocket.close();
                 } catch (IOException ex) {
                     Logger.getLogger(HttpServer.class.getName()).log(Level.SEVERE, null, ex);
@@ -100,22 +96,9 @@ public class HTTPServer {
 
     private void createResponse(Request req, OutputStream out) throws IOException {
         URI theuri = req.getTheuri();
-        if (theuri.getPath().startsWith("/Apps")) {
-            String appuri = theuri.getPath().substring(5);
-            //invokeApp(appuri,out);
-        } else {
-            getStaticResource(theuri.getPath(),out);
-        }
+        getStaticResource(theuri.getPath(),out);
         out.close();
     }
-
-    private void invokeApp(String appuri, PrintWriter out) {
-        String header = "HTTP/1.1 200 OK\r\n"
-                + "Content-Type: text/html\r\n" +
-                "\r\n";
-        out.println(header);
-    }
-
 
     private void getStaticResource(String path, OutputStream out) throws IOException {
         //System.out.println("PATTH----");
@@ -125,7 +108,6 @@ public class HTTPServer {
             //System.out.println("ENTRE");
         }
         Path file = Paths.get("src/main/resources" + path);
-
         File arch = new File(System.getProperty("user.dir")+"/"+file);
         if (arch.exists()) {
 
@@ -147,7 +129,7 @@ public class HTTPServer {
         try (InputStream in = Files.newInputStream(file);
              BufferedReader reader
                      = new BufferedReader(new InputStreamReader(in))) {
-            String header = "HTTP/1.1 404 Not Found\r\n"
+            String header = "HTTP/1.1 404 Not Found \r\n"
                     + "Content-Type: text/html \r\n"
                     + "\r\n";
             response.println(header);
@@ -201,7 +183,5 @@ public class HTTPServer {
             System.out.println("not found");
         }
 
-
     }
-
 }
