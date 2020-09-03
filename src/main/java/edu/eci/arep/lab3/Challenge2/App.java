@@ -9,8 +9,17 @@ import edu.eci.arep.lab3.Challenge2.Persistence.JsonBuild;
 import edu.eci.arep.lab3.Challenge2.Service.RestaurantServices;
 import edu.eci.arep.lab3.Challenge2.Service.impl.RestaurantServicesImpl;
 
+/**
+ * The type App.
+ * @author Johan Sebastian Arias
+ */
 public class App {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
         RestaurantServices restaurantServices = new RestaurantServicesImpl();

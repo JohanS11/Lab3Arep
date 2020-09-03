@@ -14,19 +14,32 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * The type Http server.
+ * @author Johan Sebastian Arias
+ */
 public class HttpServer extends Thread{
 
     private boolean running = false;
 
+    /**
+     * Instantiates a new Http server.
+     */
     public HttpServer() {
     }
 
+    /**
+     * Gets port.
+     *
+     * @return the port
+     */
     static int getPort() {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
         }
         return 36000; //returns default port if heroku-port isn't set (i.e. on localhost)
     }
+
     public void run() {
         try {
             ServerSocket serverSocket = null;

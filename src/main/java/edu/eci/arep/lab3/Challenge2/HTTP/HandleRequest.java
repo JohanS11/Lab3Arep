@@ -3,6 +3,10 @@ package edu.eci.arep.lab3.Challenge2.HTTP;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The type Handle request.
+ * @author Johan Sebastian Arias
+ */
 public class HandleRequest {
 
     private String method;
@@ -11,6 +15,9 @@ public class HandleRequest {
     private HashMap<String ,String> headers;
 
 
+    /**
+     * Instantiates a new Handle request.
+     */
     public HandleRequest() {
         this.headers = new HashMap<>();
         this.method="";
@@ -19,66 +26,74 @@ public class HandleRequest {
     }
 
     /**
-     * retorna los datos del cuerpo de la peticion
-     * @return los datos del cuerpo de la peticion
+     * Gets body.
+     *
+     * @return the body
      */
     public String getBody() {
         return body;
     }
 
     /**
-     * establece el cual es el cuerpo de la peticion
-     * @param body el nuevo cuerpo
+     * Sets body.
+     *
+     * @param body the body
      */
     public void setBody(String body) {
         this.body = body;
     }
 
     /**
-     * retorna el método utilizado en la petición
-     * @return un string con el método utilizado en la petición
+     * Gets method.
+     *
+     * @return the method
      */
     public String getMethod() {
         return method;
     }
 
     /**
-     * establece el metodo que utiliza la peticion
-     * @param method el metodo utilizado
+     * Sets method.
+     *
+     * @param method the method
      */
     public void setMethod(String method) {
         this.method = method;
     }
 
     /**
-     * retorna la ruta a la que se realiza la peticion
-     * @return la ruta a la que se realiza la peticion
+     * Gets path.
+     *
+     * @return the path
      */
     public String getPath() {
         return path;
     }
 
     /**
-     * establece la ruta de la peticion
-     * @param path la ruta de la peticion
+     * Sets path.
+     *
+     * @param path the path
      */
     public void setPath(String path) {
         this.path = path;
     }
 
     /**
-     * retorna un encabezado especifico de la peticion
-     * @param header  el nombre del encabezado
-     * @return el contenido del encabezado
+     * Gets header.
+     *
+     * @param header the header
+     * @return the header
      */
     public String getHeader(String header) {
         return headers.get(header);
     }
 
     /**
-     * añade un nuevo encabezado a la peticion
-     * @param headerName nombre del encabezado
-     * @param header contenido del encabezado
+     * Add header.
+     *
+     * @param headerName the header name
+     * @param header     the header
      */
     public void addHeader(String headerName, String header) {
         this.headers.put(headerName,header);

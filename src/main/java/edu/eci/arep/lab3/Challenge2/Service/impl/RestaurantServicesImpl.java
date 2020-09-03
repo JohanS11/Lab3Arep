@@ -8,10 +8,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The type Restaurant services.
+ * @author Johan Sebastian Arias
+ */
 public class RestaurantServicesImpl implements RestaurantServices {
 
     private DBConnection client;
 
+    /**
+     * Instantiates a new Restaurant services.
+     */
     public RestaurantServicesImpl() {
         this.client = new DBConnection();
     }

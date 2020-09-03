@@ -35,23 +35,14 @@ public class Request {
 
     }
 
-    /**
-     * @return the method
-     */
     public String getMethod() {
         return method;
     }
 
-    /**
-     * @return the requestURI
-     */
     public String getRequestURI() {
         return requestURI;
     }
 
-    /**
-     * @return the HTTPVersion
-     */
     public String getHTTPVersion() {
         return HTTPVersion;
     }
@@ -62,16 +53,10 @@ public class Request {
                 "Query: " + query;
     }
 
-    /**
-     * @return the theuri
-     */
     public URI getTheuri() {
         return theuri;
     }
 
-    /**
-     * @param theuri the theuri to set
-     */
     public void setTheuri(URI theuri) {
         this.theuri = theuri;
     }

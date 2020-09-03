@@ -15,19 +15,35 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * The type Http server.
+ * @author Johan Sebastian Arias
+ */
 public class HTTPServer {
 
     private boolean running = false;
 
+    /**
+     * Instantiates a new Http server.
+     */
     public HTTPServer() {
     }
 
+    /**
+     * Gets port.
+     *
+     * @return the port
+     */
     static int getPort() {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
         }
         return 36000; //returns default port if heroku-port isn't set (i.e. on localhost)
     }
+
+    /**
+     * Start.
+     */
     public void start() {
         try {
             ServerSocket serverSocket = null;

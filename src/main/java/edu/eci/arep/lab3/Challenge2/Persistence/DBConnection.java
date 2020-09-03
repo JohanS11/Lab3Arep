@@ -10,17 +10,35 @@ import org.bson.Document;
 
 import java.util.ArrayList;
 
+/**
+ * The type Db connection.
+ * @author Johan Sebastian Arias
+ */
 public class DBConnection {
 
+    /**
+     * The Mongo client.
+     */
     public MongoClient mongoClient;
+    /**
+     * The Uri.
+     */
     public MongoClientURI uri;
 
+    /**
+     * Instantiates a new Db connection.
+     */
     public DBConnection() {
         uri = new MongoClientURI(
                 "mongodb+srv://chan1100:chan123@cluster0.djvny.mongodb.net/ArepDB?retryWrites=true&w=majority");
         mongoClient = new MongoClient(uri);
     }
 
+    /**
+     * Retrieve data array list.
+     *
+     * @return the array list
+     */
     public ArrayList<Restaurant> retrieveData() {
 
         MongoDatabase db = mongoClient.getDatabase("ArepDB");
@@ -43,6 +61,11 @@ public class DBConnection {
 
     }
 
+    /**
+     * Add restaurant.
+     *
+     * @param restaurant the restaurant
+     */
     public void AddRestaurant(Restaurant restaurant){
         MongoDatabase db = mongoClient.getDatabase("ArepDB");
         MongoCollection<Document> collection = db.getCollection("restaurants");
