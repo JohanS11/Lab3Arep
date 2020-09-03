@@ -184,7 +184,7 @@ public class HttpServer extends Thread{
             System.out.println("NOT FOUND");
         }
         response.println("HTTP/1.1 200 OK\r\n" +
-                "Content-Type: image/" + ext + "\r\n\r\n");
+                "Content-Type: image/" + ext + "\r\n");
         try {
             ImageIO.write(image, ext, out);
             out.close();
