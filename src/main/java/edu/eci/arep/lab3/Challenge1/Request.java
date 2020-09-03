@@ -89,8 +89,5 @@ public class Request {
         return theQuery;
     }
 
-    public String getValFromQuery(String varname){
-        return query.get(varname);
-    }
 
 }

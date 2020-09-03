@@ -1,3 +1,3 @@
-function doNothin(){
+function doNothing(){
     console.log("AQUI")
 }

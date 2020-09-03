@@ -1,4 +1,4 @@
-package edu.eci.arep.lab3;
+package edu.eci.arep.lab3.Challenge1;
 
 import edu.eci.arep.lab3.Challenge1.HTTPServer;
 

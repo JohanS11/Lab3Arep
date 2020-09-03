@@ -76,10 +76,12 @@ public class HTTPServer {
                     request.put(entry[0], entry[1]);
                 }
             }
-            if (!in.ready()) {
+            if (!in.ready() || inputLine.length()==0) {
                 break;
             }
         }
+        System.out.println("HASMAP");
+        System.out.println(request);
         if (request.get("requestLine") !=null){
             Request req = new Request(request.get("requestLine"));
             System.out.println("RequestLine: " + req);
@@ -96,6 +98,8 @@ public class HTTPServer {
 
     private void createResponse(Request req, OutputStream out) throws IOException {
         URI theuri = req.getTheuri();
+        System.out.println("METHOOOD");
+        System.out.println(req.getMethod());
         getStaticResource(theuri.getPath(),out);
         out.close();
     }
@@ -108,7 +112,7 @@ public class HTTPServer {
             //System.out.println("ENTRE");
         }
         Path file = Paths.get("src/main/resources" + path);
-        File arch = new File(System.getProperty("user.dir")+"/"+file);
+    File arch = new File(System.getProperty("user.dir")+"/"+file);
         if (arch.exists()) {
 
             //System.out.println("---TIPO---");
@@ -162,20 +166,20 @@ public class HTTPServer {
         }
 
     }
-    private void getImage(OutputStream out, String resource, String ext) throws IOException,IIOException{
-        PrintWriter response = new PrintWriter(out,true);
+    private void getImage(OutputStream out, String resource, String ext) throws IOException,IIOException {
+        PrintWriter response = new PrintWriter(out, true);
         ByteArrayOutputStream by = new ByteArrayOutputStream();
-        File file = new File(System.getProperty("user.dir")+"/src/main/resources"+ resource);
+        File file = new File(System.getProperty("user.dir") + "/src/main/resources" + resource);
         BufferedImage image = null;
         try {
             image = ImageIO.read(file);
         } catch (Exception e) {
             System.out.println("NOT FOUND");
         }
-        System.out.println("file "+ file.getName());
-        System.out.println("LENGHT "+ file.length());
+        System.out.println("file " + file.getName());
+        System.out.println("LENGHT " + file.length());
         response.println("HTTP/1.1 200 OK\r\n" +
-                "Content-Type: image/"+ext+"\r\n");
+                "Content-Type: image/" + ext + "\r\n");
         try {
             ImageIO.write(image, ext, out);
             out.close();
