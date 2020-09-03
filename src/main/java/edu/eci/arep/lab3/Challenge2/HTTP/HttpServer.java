@@ -140,7 +140,10 @@ public class HttpServer extends Thread{
         else if (request.getMethod().equals("GET") && request.getPath().contains(".")){
             if (type.startsWith("text/")){
                 getFile(clientSocket.getOutputStream(),file,type.substring(5));
-            }else{
+
+            }else if(type.startsWith("application/")){
+                getFile(clientSocket.getOutputStream(),file,type.substring(13));
+            } else{
                 getImage(clientSocket.getOutputStream(),request.getPath(),type.substring(6));
             }
         }
