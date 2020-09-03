@@ -133,12 +133,11 @@ public class HttpServer extends Thread{
             out.print(controllerEndPoint.getBody());
             out.close();
         }
+        if (!arch.exists()) {
+            file = Paths.get("src/main/resources/notFound.html");
+            notFound(clientSocket,file);
+        }
         else if (request.getMethod().equals("GET") && request.getPath().contains(".")){
-            if (!arch.exists()) {
-                file = Paths.get("src/main/resources/notFound.html");
-                notFound(clientSocket,file);
-            }
-
             if (type.startsWith("text/")){
                 getFile(clientSocket.getOutputStream(),file,type.substring(5));
             }else{
@@ -203,7 +202,6 @@ public class HttpServer extends Thread{
             String line = null;
             while ((line = reader.readLine()) != null) {
                 response.println(line);
-                System.out.println(line);
             }
         } catch (IOException ex) {
             Logger.getLogger(com.sun.net.httpserver.HttpServer.class.getName()).log(Level.SEVERE, null, ex);
