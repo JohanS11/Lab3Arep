@@ -144,6 +144,7 @@ public class HttpServer extends Thread{
             }else if(type.startsWith("application/")){
                 getFile(clientSocket.getOutputStream(),file,type.substring(13));
             } else{
+                System.out.println("TIPOO IMAGEN "+ type.substring(6));
                 getImage(clientSocket.getOutputStream(),request.getPath(),type.substring(6));
             }
         }
