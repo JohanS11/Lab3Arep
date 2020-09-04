@@ -12,9 +12,6 @@
   This is the intended design for this project
   
   ![uml](img/uml.png)
-  
-  ![comp](img/comp.png)
-  
 
 ## User's guide
 
@@ -32,52 +29,81 @@
   
 1. **Clone this repository:** 
 
-   `git clone https://github.com/JohanS11/Taller1Arep.git`
+   `git clone https://github.com/JohanS11/Lab3Arep.git`
 
 2. **Build the project with maven:**
   
-    `cd LAB2-AREP && mvn package`
+    `cd Lab3Arep && mvn package`
 
 3. **Execute the project with maven:**
 
-    `mvn exec:java -Dexec.mainClass="edu.eci.arep.sparkwebapp.SparkWebApp" `
+    ***Exercise 1:*** 
     
-    now you can navigate trough your brower at http://localhost:4567/inputdata
+    `mvn exec:java -Dexec.mainClass="edu.eci.arep.lab3.URL.URLReader" `
+    
+    ***Exercise 2:***  
+    
+    `mvn exec:java -Dexec.mainClass="edu.eci.arep.lab3.Browser.URLWriter" `
+    
+    ***Exercise 3:*** 
+    
+    `mvn exec:java -Dexec.mainClass="edu.eci.arep.lab3.Server.SocketServer" `
+    
+    y `mvn exec:java -Dexec.mainClass="edu.eci.arep.lab3.Server.SocketClient" `
+    
+    ***Challenge 1:*** 
+    
+
+    `mvn exec:java -Dexec.mainClass="edu.eci.arep.lab3.Challenge1.App" `
+    
+    now you can navigate trough Static files like:
+    
+    - / -> index.html.
+    - lee.png
+    - notFound.html
+    - restaurants.html
+    - text.js
+    
+    ***Challenge 2:*** 
+    
+     `mvn exec:java -Dexec.mainClass="edu.eci.arep.lab3.Challenge2.App" `
+     
+     now you can get Request data from a MongoDB server from the restaurants collection.
+     You can also do post request to this database.
+     
+     ***NOTE*** 
+     
+     Change this url in order to see the request and the post from the database locally
+     
+     ![zelda](img/zelda.jpg)
+
+     (Go through **restaurants.html** to server requesting from the database)
     
    ### Architecture Description
    
-   You can find the architecture description of this project at [Architecture Description](https://github.com/JohanS11/LAB2-AREP/blob/master/Architecture%20Description.pdf)
+   You can find the architecture description of this project at 
+    [Architecture Description](https://github.com/JohanS11/Lab3Arep/blob/master/Architecture.pdf)
 
    ### Executing tests
    
      In order to run the tests developed with JUnit you have run the follow command:
      
      `mvn test`
-     
-     ### Tests coverage
-     
-     ![test3](img/testCoverage.png)
-     
+   
   ## This project was built with:
   
    - Apache Maven 3.6.3 
    - Java 1.8.0_211
    - Git 2.26.2
    
-  ## POC Heroku App 
-  
-  ![poc1](img/poc1.png)
-  
-  ![poc2](img/poc2.png)
-    
+
    In case that you try interesting things (;
    
   ![poc3](img/poc3.png)
   
   ## Java Documentation
   
-  In order to get additional information about this project you can use JavaDoc to get the Documentation.
-  The documentation of this project is located in this [site](https://johans11.github.io/LAB2-AREP/project-reports.html)
+  In order to generate javadoc execute `mvn javadoc:javadoc`
   
   ## Author
   
@@ -85,5 +111,5 @@
   
   ## License
   
-  This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](https://github.com/JohanS11/LAB2-AREP/blob/master/LICENSE) file for more details.
+  This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](https://github.com/JohanS11/Lab3Arep/blob/master/LICENSE) file for more details.
 
