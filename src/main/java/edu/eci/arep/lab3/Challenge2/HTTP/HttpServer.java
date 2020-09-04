@@ -80,6 +80,7 @@ public class HttpServer extends Thread{
         HandleRequest request = new HandleRequest();
         boolean requestLineReady = false;
         while ((inputLine = in.readLine()) != null) {
+            System.out.println("LINEEE "+inputLine);
             if (!requestLineReady) {
                 headers.put("requestLine", inputLine);
                 String [] relevant = headers.get("requestLine").split(" ");
@@ -184,9 +185,10 @@ public class HttpServer extends Thread{
             System.out.println("NOT FOUND");
         }
         response.println("HTTP/1.1 200 OK\r\n" +
-                "Content-Type: image/" + ext + "\r\n");
+                "Content-Type: image/" + ext +"\r\n\r\n");
         try {
             ImageIO.write(image, ext, out);
+
             out.close();
         } catch (IOException e) {
             System.out.println("not found");

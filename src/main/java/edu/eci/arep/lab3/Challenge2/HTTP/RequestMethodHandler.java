@@ -20,7 +20,6 @@ public class RequestMethodHandler {
      */
     public static void get(String path, BiFunction<HandleRequest, HandleResponse,String> f){
         ep.put("GET"+path,f);
-        System.out.println("asdsadadasdsa");
         System.out.println("GET"+path);
     }
 

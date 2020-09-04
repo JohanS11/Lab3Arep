@@ -31,6 +31,7 @@ public class RestaurantServicesImpl implements RestaurantServices {
     @Override
     public void AddRestaurant(String restaurant) {
 
+        System.out.println(restaurant);
         restaurant = restaurant.replace("\"","");
         System.out.println("RESTAAAA "+ restaurant);
         restaurant = restaurant.substring(1,restaurant.length()-1);
