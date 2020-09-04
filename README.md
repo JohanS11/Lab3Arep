@@ -5,7 +5,7 @@
  
    [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://salty-journey-22242.herokuapp.com)
   
-  This project has continuos integration via **CircleCi** [![CircleCI](https://circleci.com/gh/JohanS11/LAB3-AREP.svg?style=svg)](https://circleci.com/gh/JohanS11/Lab3Arep)
+  This project has continuos integration via **CircleCi** [![CircleCI](https://circleci.com/gh/JohanS11/Lab3Arep.svg?style=svg)](https://circleci.com/gh/JohanS11/Lab3Arep)
  
 ## Design 
 
