@@ -2,10 +2,10 @@
 
 ## Description
 
-   <br>
-  It reads the data from this webpage [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://enigmatic-fjord-20501.herokuapp.com/inputdata).
+ 
+   [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://salty-journey-22242.herokuapp.com)
   
-  This project has continuos integration via **CircleCi** [![CircleCI](https://circleci.com/gh/JohanS11/LAB2-AREP.svg?style=svg)](https://circleci.com/gh/JohanS11/LAB2-AREP)
+  This project has continuos integration via **CircleCi** [![CircleCI](https://circleci.com/gh/JohanS11/LAB3-AREP.svg?style=svg)](https://circleci.com/gh/JohanS11/Lab3Arep)
  
 ## Design 
 
