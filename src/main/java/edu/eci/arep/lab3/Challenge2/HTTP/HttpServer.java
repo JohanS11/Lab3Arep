@@ -120,9 +120,12 @@ public class HttpServer extends Thread{
 
     private void executeRequest(HandleRequest request, Socket clientSocket) throws IOException {
         HandleResponse controllerEndPoint = RequestMethodHandler.exec(request);
+
         if (request.getPath().equals("/")){
             request.setPath("/index.html");
+
         }
+        String faile = request.getPath();
         Path file = Paths.get("src/main/resources" + request.getPath());
         File arch = new File(System.getProperty("user.dir")+"/"+file);
         String type = Files.probeContentType(file);
@@ -146,7 +149,7 @@ public class HttpServer extends Thread{
                 getFile(clientSocket.getOutputStream(),file,type.substring(13));
             } else{
                 System.out.println("TIPOO IMAGEN "+ type.substring(6));
-                getImage(clientSocket.getOutputStream(),request.getPath(),type.substring(6));
+                getImage(clientSocket.getOutputStream(),arch,type.substring(6));
             }
         }
     }
@@ -174,27 +177,19 @@ public class HttpServer extends Thread{
         }
 
     }
-    private void getImage(OutputStream out, String resource, String ext) throws IOException, IIOException {
-        PrintWriter response = new PrintWriter(out, true);
-        ByteArrayOutputStream by = new ByteArrayOutputStream();
-        File file = new File(System.getProperty("user.dir") + "/src/main/resources" + resource);
-        BufferedImage image = null;
-        try {
-            image = ImageIO.read(file);
-        } catch (Exception e) {
-            System.out.println("NOT FOUND");
-        }
-        response.println("HTTP/1.1 200 OK\r\n" +
-                "Content-Type: image/" + ext +"\r\n\r\n");
-        try {
-            ImageIO.write(image, ext, out);
 
-            out.close();
-        } catch (IOException e) {
-            System.out.println("not found");
-        }
-
-    }
+   private void getImage(OutputStream out, File arch, String ext) throws IOException,IIOException {
+       DataOutputStream outToClient = new DataOutputStream(out);
+       int numOfBytes = (int ) arch.length();
+       FileInputStream inFile = new FileInputStream("src/main/resources/"+ arch.getName());
+       byte[] fileBytes = new byte[numOfBytes];
+       inFile.read(fileBytes);
+       String header = "HTTP/1.1 200 OK\r\n"
+               + "Content-Type: image/"+ext.trim()+"\r\n"
+               + "\r\n";
+       outToClient.writeBytes(header);
+       outToClient.write(fileBytes, 0, numOfBytes);
+}
 
     private void notFound(Socket clientSocket,Path file) throws IOException {
         PrintWriter response = new PrintWriter(clientSocket.getOutputStream(),true);

@@ -183,6 +183,7 @@ public class HTTPServer {
 
     }
     private void getImage(OutputStream out, String resource, String ext) throws IOException,IIOException {
+
         PrintWriter response = new PrintWriter(out, true);
         ByteArrayOutputStream by = new ByteArrayOutputStream();
         File file = new File(System.getProperty("user.dir") + "/src/main/resources" + resource);
