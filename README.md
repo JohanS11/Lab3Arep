@@ -96,10 +96,6 @@
    - Java 1.8.0_211
    - Git 2.26.2
    
-
-   In case that you try interesting things (;
-   
-  ![poc3](img/poc3.png)
   
   ## Java Documentation
   
