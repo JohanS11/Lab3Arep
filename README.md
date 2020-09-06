@@ -12,6 +12,8 @@
   This is the intended design for this project
   
   ![uml](img/uml.png)
+  
+  ![comp](img/comp.jpg)
 
 ## User's guide
 
